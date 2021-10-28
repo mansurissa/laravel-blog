@@ -21,3 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/','blog@blog');
+Route::get('/newPost','NewpostController@createPostForm');
+Route::post('/newPost','NewpostController@createPost')->name('create');
+// Route::get('/blog', [App\Http\Controllers\Blog::class, 'Blog'])->name('blog');
