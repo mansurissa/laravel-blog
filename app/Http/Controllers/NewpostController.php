@@ -25,4 +25,22 @@ class NewpostController extends Controller
         ]);
         return redirect('/');
     }
+    public function read(posts $post){
+        return view('readPost',compact('post'));
+    }
+    public function edit(posts $post){
+        return view('editPost',compact('post'));
+    }
+    public function update(posts $post, Request $request){
+       $post->update([
+          'title' => $request['title'],
+          'tags' => $request['tags'],
+          'content' => $request['content'],
+      ]);
+      return redirect('/');
+    }
+    public function delete(posts $post){
+       $post->delete();
+      return redirect('/');
+    }
 }

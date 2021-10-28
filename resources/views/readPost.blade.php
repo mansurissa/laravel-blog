@@ -3,7 +3,6 @@
 
 @section('content')
 <div class="container">
-    @foreach ($posts as $post )
     <div class="blog-container">
       <div class="blog-header">
         <div class="blog-cover">
@@ -15,7 +14,7 @@
 
       <div class="blog-body">
         <div class="blog-title">
-          <h1><a href="{{ $post->id }}">   {{$post->title  }}</a></h1>
+          <h1><a href="#">{{$post->title  }}</a></h1>
         </div>
         <div class="blog-summary">
           <p>{{$post->content  }}</p>
@@ -40,9 +39,17 @@
           <li class="shares"><a href="#"><svg class="icon-star"><use xlink:href="#icon-star"></use></svg><span class="numero">1</span></a></li>
         </ul>
       </div>
+
+    </div>
+    <div class="container">
+        <button type="button" class="btn btn-primary"><a  href="{{ $post->id }}/edit">Edit Post</a></button>
+        <form action="/{{ $post->id }}/delete"  method="POST">
+            @method('DELETE')
+            @csrf
+            <button type="submit" class="btn btn-danger">Delete Post</button>
+          </form>
     </div>
 
-    @endforeach
 </div>
 @endsection
 
