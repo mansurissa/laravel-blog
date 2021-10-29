@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/','blog@blog');
 Route::get('/newPost','NewpostController@createPostForm');
-Route::get('/{post}','NewpostController@read');
+Route::get('/{post}','blog@read');
 Route::post('/newPost','NewpostController@createPost')->name('create');
 Route::get('/{post}/edit','NewpostController@edit')->name('edit');
 Route::put('/{post}/update','NewpostController@update')->name('update');

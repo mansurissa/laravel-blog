@@ -3,9 +3,9 @@
 
 @section('content')
 <div class="container">
-    <div class="blog-container">
+    <div class="">
       <div class="blog-header">
-        <div class="blog-cover">
+        <div class="blog-cover-read">
           <div class="blog-author">
             <h3>Russ Beye</h3>
           </div>
@@ -14,7 +14,7 @@
 
       <div class="blog-body">
         <div class="blog-title">
-          <h1><a href="#">{{$post->title  }}</a></h1>
+          <h1>{{$post->title  }}</h1>
         </div>
         <div class="blog-summary">
           <p>{{$post->content  }}</p>
@@ -41,13 +41,16 @@
       </div>
 
     </div>
-    <div class="container">
-        <button type="button" class="btn btn-primary"><a  href="{{ $post->id }}/edit">Edit Post</a></button>
-        <form action="/{{ $post->id }}/delete"  method="POST">
-            @method('DELETE')
-            @csrf
-            <button type="submit" class="btn btn-danger">Delete Post</button>
-          </form>
+    <div class="container d-flex">
+        @if (Auth::check())
+            <button type="button" class="btn btn-primary "><a style="text-decoration:none;color:white"  href="{{ $post->id }}/edit">Edit Post</a></button>
+            <form action="/{{ $post->id }}/delete"  method="POST">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-danger">Delete Post</button>
+            </form>
+       @endif
+
     </div>
 
 </div>

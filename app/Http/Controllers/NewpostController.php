@@ -25,9 +25,7 @@ class NewpostController extends Controller
         ]);
         return redirect('/');
     }
-    public function read(posts $post){
-        return view('readPost',compact('post'));
-    }
+
     public function edit(posts $post){
         return view('editPost',compact('post'));
     }
