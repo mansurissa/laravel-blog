@@ -7,7 +7,7 @@ use App\posts;
 
 class blog extends Controller
 {
-    //
+
     public function blog(Request $request){
 
         $posts=posts::get();
